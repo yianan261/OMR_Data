@@ -1,0 +1,24 @@
+(v0:) "4cc 4ff 4aa" (v1:) "4c) 4f 4a" (v0:) "4dd 4ff 4bb-" (v1:) "4d 4f 4b-" (v0:) "4b- 4dd 4gg" (v1:) "4B- 4f 4g" (v0:) ".ZZZ4dd 4ff 4bb-" (v1:) "4d 4f 4b-" (v2:) "." (v0:) ".ZZZ4b- 4dd 4gg" (v1:) "4B- 4f 4g" (v2:) "." (v0:) "4cc 4ff 4aa" (v1:) "4rAAA<" (v0:) "4a 4cc 4ff" (v1:) "4A) 4c 4f" (v0:) "4b- 4dd 4gg" (v1:) "4B- 4d 4g" (v0:) "4g 4b- 4cc" (v1:) "4E< 4B-< 4c<" **kern	**kern
+*part1	*part1
+*staff2	*staff1
+*I"Piano	*
+*clefF4	*clefG2
+*k[b-]	*k[b-]
+=1	=1
+*	*^
+*	*	*^
+.	1r<yy	4rg	(1FFF< 1FF<
+.	.ZZZ4cc 4ff 4aa	4c) 4f 4a	.
+.	.ZZZ4dd 4ff 4bb-	4d 4f 4b-	.
+.	.ZZZ4b- 4dd 4gg	4B- 4f 4g	.
+*	*	*v	*v
+=	=	=
+(1FFF 1FF	4%-3ryy	4rAAA<
+.	.ZZZ4a 4cc 4ff	4A) 4c 4f
+.	.ZZZ4b- 4dd 4gg	4B- 4d 4g
+.	.ZZZ4g 4b- 4cc	4E< 4B-< 4c<
+*	*v	*v
+=	=
+*-	*-
+!!!system-decoration: {(s1,s2)}
+!!!RDF**kern: < = below

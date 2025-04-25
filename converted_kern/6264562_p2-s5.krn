@@ -1,0 +1,48 @@
+**kern	**kern
+*part1	*part1
+*staff2	*staff1
+*I"Piano	*
+*clefF4	*clefG2
+*k[]	*k[]
+=1	=1
+2.FF 2.C 2.F	4.c 4.f 4.a
+.	4.cc 4.ff 4.aa
+2.FFF 2.FF	4.c 4.f 4.a
+.	4.cc 4.ff 4.aa
+=	=
+*^	*
+4rF	2.FFF#X 2.FF#X	4.e 4.a 4.cc
+8rF	.	.
+4.F#X 4.A 4.c	.	4.ee 4.aa 4.ccc
+4rF	2.FFF# 2.FF#	4.e 4.a 4.cc
+8rF	.	.
+4.F# 4.A 4.c	.	4.ee 4.aa 4.ccc
+=	=	=
+!	!	!LO:TX:b:i:t=slarg.
+4rF	2.GGG^^ 2.GG	4.c 4.fn 4.a 4.cc
+8rF	.	.
+4.G 4.c 4.d 4.f	.	4.a 4.cc 4.ff 4.aa
+4.d> 4.f> 4.g> 4.b>	4rBB	4.ff 4.bb 4.fff
+.	8r	.
+!	!	!LO:TX:a:i:t=a Tempo
+8ryy	4.GGG 4.GG	4.B 4.f 4.g
+4ryy	.	.
+=	=	=
+4r	[2.CCC^^ [2.CC	4.c 4.e 4.g
+8r	.	.
+*	*	*8va
+4.E 4.G 4.c 4.e	.	4.ee 4.gg 4.ccc 4.eee
+4.G 4.c 4.e 4.g	2.CCC] 2.CC]	4.gg 4.ccc 4.eee 4.ggg
+*clefG2	*	*
+4.c 4.e 4.g 4.cc	.	4.ccc 4.eee 4.ggg 4.cccc
+*v	*v	*
+*	*X8va
+*clefF4	*
+=	=
+2.CC 2.GG 2.C	2.E< 2.A< 2.c<
+2.r	2.r
+==	==
+*-	*-
+!!!system-decoration: {(s1,s2)}
+!!!RDF**kern: > = above
+!!!RDF**kern: < = below

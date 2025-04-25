@@ -1,0 +1,46 @@
+**kern	**kern
+*part1	*part1
+*staff2	*staff1
+*I"Piano	*
+*clefF4	*clefG2
+*k[b-e-a-d-g-]	*k[b-e-a-d-g-]
+=1	=1
+*	*^
+(16DD-LL	8ryy	2ryy
+16AA-	.	.
+16D-	16ryy	.
+16FJJ	16F<	.
+4ryy	16A-LL<	.
+.	16d-	.
+.	16e-	.
+.	16fJJ)	.
+*	*v	*v
+(16D-LL	8ryy
+16A-	.
+16d-	16ryy
+16fJJ>	16f
+4r	16a-LL
+.	16dd-
+.	16ee-
+.	16ffJJ)
+*clefG2	*
+=	=
+*	*8va
+2.dd- 2.aa-	16fffLL
+.	16aaa-
+.	16fff
+.	16aaa-JJ
+.	16fffLL
+.	16aaa-
+.	16fff
+.	16aaa-JJ
+.	4fff
+*clefF4	*
+*	*X8va
+8DDD- 8DD-	8AA-< 8D-< 8F<
+8rAAA	8rAAA
+=||	=||
+*-	*-
+!!!system-decoration: {(s1,s2)}
+!!!RDF**kern: > = above
+!!!RDF**kern: < = below
