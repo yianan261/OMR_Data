@@ -22,14 +22,31 @@ model = AutoModelForCausalLM.from_pretrained(
 
 pipe = pipeline("text-generation", model=model, tokenizer=tokenizer)
 
-def ask_local_model(prompt):
-    response = pipe(prompt, max_new_tokens=64, do_sample=False)
-    return response[0]['generated_text'].split(prompt)[-1].strip()
+def ask_local_model(diff_text):
+    # response = pipe(prompt, max_new_tokens=64, do_sample=False)
+    # return response[0]['generated_text'].split(prompt)[-1].strip()
+
+    messages = [
+        {"role": "system", "content": "You are a helpful music AI that determines whether two MusicXML files are semantically equivalent."},
+        {"role": "user", "content": f"""The following is a diff between two MusicXML files — the original and a round-tripped version.
+        Please answer if they are semantically equivalent (e.g., they represent the same music).
+        Only answer "Yes" or "No", followed optionally by a 1-sentence explanation.
+
+        Diff:
+        {diff_text}"""}
+        ]
+
+    # Convert messages into a chat-style prompt
+    formatted_prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+
+    response = pipe(formatted_prompt, max_new_tokens=64, do_sample=False)[0]['generated_text']
+    return response.split(formatted_prompt)[-1].strip()
+
 
 # Directories
 ORIGINAL_DIR = "original_musicxml"
 ROUNDTRIPPED_DIR = "roundtrip_musicxml"
-RESULT_CSV = "semantic_gpt_comparison_results.csv"
+RESULT_CSV = "semantic_gpt_comparison_results2.csv"
 MAX_FILES = 500
 
 def summarize_diff(original_text, new_text):
@@ -42,19 +59,19 @@ def summarize_diff(original_text, new_text):
     ))
     return '\n'.join(diff[:100])  # Trim long diffs
 
-def check_if_equivalent(diff):
-    prompt = f"""
-The following is a diff between two MusicXML files — the original and a round-tripped version.
-Please answer if they are semantically equivalent (e.g., they represent the same music).
-Only answer "Yes" or "No", followed optionally by a 1-sentence explanation.
+# def check_if_equivalent(diff):
+#     prompt = f"""
+# The following is a diff between two MusicXML files — the original and a round-tripped version.
+# Please answer if they are semantically equivalent (e.g., they represent the same music).
+# Only answer "Yes" or "No", followed optionally by a 1-sentence explanation.
 
-Diff:
-{diff}
-"""
-    return ask_local_model(prompt)
+# Diff:
+# {diff}
+# """
+#     return ask_local_model(prompt)
 
 def normalize_key(f):
-    return f.replace("_roundtrip", "").replace(".musicxml", "")
+    return f.replace("_roundtrip", "").replace(".musicxml", "").strip().lower()
 
 def run_comparison():
     # Map: normalized key → full real filename
@@ -88,10 +105,13 @@ def run_comparison():
                 roundtrip_text = f2.read()
 
             diff_snippet = summarize_diff(original_text, roundtrip_text)
-            verdict = check_if_equivalent(diff_snippet)
+            verdict = ask_local_model(diff_snippet)
+            if not verdict.lower().startswith(("yes","no")):
+                verdict = f"? Unexpected output: {verdict[:50]}"
 
             results.append((original_files[key], verdict, diff_snippet))
             print(f"{original_files[key]}: {verdict}")
+
         except Exception as e:
             results.append((original_files[key], f"Error: {e}", "N/A"))
             print(f"{original_files[key]}: Error - {e}")
