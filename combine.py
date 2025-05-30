@@ -1,6 +1,9 @@
 from datasets import load_dataset, Dataset, DatasetDict
 import os
 
+##################################
+# old file, no longer needed for ekern
+##################################
 
 def combine_grandstaff_with_bekern(bekern_dir):
     """Combines Grandstaff dataset with bekern files."""

@@ -1,4 +1,7 @@
 import os
+#####################################################################
+# util script to normalize file names
+#####################################################################
 
 ROUNDTRIP_DIR = "roundtrip_musicxml"
 
@@ -10,6 +13,6 @@ for filename in os.listdir(ROUNDTRIP_DIR):
 
         try:
             os.rename(src, dst)
-            print(f"✅ Renamed: {filename} → {new_name}")
+            print(f"Renamed: {filename} → {new_name}")
         except Exception as e:
-            print(f"❌ Failed to rename {filename}: {e}")
+            print(f"Failed to rename {filename}: {e}")

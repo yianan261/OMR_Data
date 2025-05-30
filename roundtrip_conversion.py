@@ -2,6 +2,10 @@ import os
 import subprocess
 from pathlib import Path
 
+#####################################################################
+# converts kern to musicxml for roundtrip conversoin check
+#####################################################################
+
 hum2xml_path = "/Users/chenyian261/Documents/StevensSpring2025/Olimpic/humdrum_extras_build/humextra/bin/hum2xml"
 
 

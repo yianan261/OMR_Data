@@ -3,6 +3,10 @@ from pathlib import Path
 import filecmp
 import csv
 
+#####################################################################
+# file that compares the transcribed xml file from kern file to original 
+# xml file (checking hum2musicxml correctness)
+#####################################################################
 
 def export_filenames(directories, output_file):
     """

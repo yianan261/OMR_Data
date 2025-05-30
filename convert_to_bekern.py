@@ -2,6 +2,9 @@ import os
 import sys
 import re
 
+#####################################################################
+# old file that converts kern to bekern (no longer needed)
+#####################################################################
 
 def clean_kern(krn,
                avoid_tokens=[
